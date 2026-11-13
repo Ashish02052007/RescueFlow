@@ -57,6 +57,10 @@ npm run build
 
 The blueprint builds the frontend and backend into one service, generates a strong JWT secret, and mounts persistent storage for SQLite. It uses a paid Starter service because SQLite needs persistent disk storage. Keep it as a single instance: local SQLite is not suitable for horizontally scaled services. Back up the disk before replacing or deleting the service. Check current Render pricing before deploying.
 
+## Deploy a frontend-only preview on GitHub Pages
+
+The GitHub Pages workflow builds and publishes `frontend/` at `https://ashish02052007.github.io/RescueFlow/`. It does not host the backend. Without a separately deployed API, login, live data, and Socket.IO updates will not work. Use the Render deployment above for a complete hosted demo.
+
 The seeded demo passwords are public. The hosted app is only suitable for a non-sensitive submission demo; it is **not production-ready for real emergency operations or personal/medical data**. Do not deploy it for real patients, dispatch, or traffic control. Live maps require internet access; route optimization and traffic behavior use seeded simulation data.
 
 ## CI
