@@ -2,22 +2,18 @@ services:
   - type: web
     name: rescueflow-demo
     runtime: docker
-    plan: starter
+    plan: free
     region: singapore
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /health
     autoDeploy: true
-    disk:
-      name: rescueflow-data
-      mountPath: /var/data
-      sizeGB: 1
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: "10000"
       - key: DATABASE_PATH
-        value: /var/data/rescueflow.sqlite
+        value: /tmp/rescueflow.sqlite
       - key: JWT_SECRET
         generateValue: true

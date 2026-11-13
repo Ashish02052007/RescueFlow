@@ -55,7 +55,7 @@ npm run build
 2. In Render, choose **New → Blueprint**, connect the repository, and approve the included `render.yaml`.
 3. Wait for the Docker build and `/health` check to pass; Render will provide the public HTTPS URL.
 
-The blueprint builds the frontend and backend into one service, generates a strong JWT secret, and mounts persistent storage for SQLite. It uses a paid Starter service because SQLite needs persistent disk storage. Keep it as a single instance: local SQLite is not suitable for horizontally scaled services. Back up the disk before replacing or deleting the service. Check current Render pricing before deploying.
+The blueprint builds the frontend and backend into one free web service and generates a strong JWT secret. SQLite uses the service's temporary filesystem, so saved data is lost when the service spins down, restarts, or redeploys; the free service can also take about a minute to wake after inactivity. This is suitable only for a temporary demo. Use a paid persistent disk or an external managed database if data must survive restarts. Check current Render pricing and free-tier limits before deploying.
 
 ## Deploy a frontend-only preview on GitHub Pages
 
